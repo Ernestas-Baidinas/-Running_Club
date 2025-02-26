@@ -1,30 +1,43 @@
 package lt.techin.Running_Club.model;
 
-import jakarta.persistence.*;
-import jakarta.servlet.Registration;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
-import java.util.Set;
+import java.util.List;
 
 @Entity
-@Table(name = "running_events")
 public class RunningEvent {
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(nullable = false)
-  private String name;
-
-  @Column(name = "calendar_date", nullable = false)
-  private java.sql.Date calendarDate;
-
-  @Column(nullable = false)
-  private String location;
-
-  @Column(name = "max_participants")
-  private Integer maxParticipants;
+  private String eventName;
 
   @OneToMany(mappedBy = "runningEvent")
-  private Set<Registration> registrations;
+  private List<Registration> registrations;
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
+
+  public String getEventName() {
+    return eventName;
+  }
+
+  public void setEventName(String eventName) {
+    this.eventName = eventName;
+  }
+
+  public List<Registration> getRegistrations() {
+    return registrations;
+  }
+
+  public void setRegistrations(List<Registration> registrations) {
+    this.registrations = registrations;
+  }
 
 }

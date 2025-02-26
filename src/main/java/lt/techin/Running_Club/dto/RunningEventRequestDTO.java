@@ -6,18 +6,17 @@ import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
-public class RunningEventRequestDTO {
-  @NotBlank
-  @Size(min = 5, message = "Event name must be at least 5 characters long.")
-  private String name;
+public record RunningEventRequestDTO(
+        @NotBlank
+        @Size(min = 5, message = "Event name must be at least 5 characters long.")
+        String name,
 
-  @NotNull(message = "Calendar date cannot be null.")
-  private LocalDate calendarDate;
+        @NotNull(message = "Calendar date cannot be null.")
+        LocalDate calendarDate,
 
-  @NotBlank(message = "Location cannot be blank.")
-  private String location;
+        @NotBlank(message = "Location cannot be blank.")
+        String location,
 
-  @NotNull(message = "Max participants cannot be null.")
-  private Integer maxParticipants;
-
+        @NotNull(message = "Max participants cannot be null")
+        Integer maxParticipants) {
 }

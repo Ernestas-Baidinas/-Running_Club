@@ -1,12 +1,11 @@
 package lt.techin.Running_Club.dto;
 
+import java.time.Instant;
 import java.time.LocalDate;
 
-public class RunningEventResponseDTO {
-  private Long id;
-  private String name;
-  private LocalDate calendarDate;
-  private String location;
-  private Integer maxParticipants;
-
+public record RunningEventResponseDTO(Long id,
+                                      String name,
+                                      LocalDate calendarDate,
+                                      String location,
+                                      Instant maxParticipants) {
 }

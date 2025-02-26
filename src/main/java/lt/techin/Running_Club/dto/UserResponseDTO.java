@@ -1,11 +1,10 @@
 package lt.techin.Running_Club.dto;
 
+import lt.techin.Running_Club.model.Role;
 
 import java.util.Set;
 
-public class UserResponseDTO {
-  private Long id;
-  private String username;
-  private Set<RoleDTO> roles;
-
+public record UserResponseDTO(Long id,
+                              String username,
+                              Set<Role> roles) {
 }

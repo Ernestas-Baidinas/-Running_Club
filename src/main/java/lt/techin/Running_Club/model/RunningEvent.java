@@ -1,20 +1,21 @@
 package lt.techin.Running_Club.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
-import java.util.List;
+import java.util.Set;
 
 @Entity
+@Table(name = "running_events")
 public class RunningEvent {
+
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   private String eventName;
 
   @OneToMany(mappedBy = "runningEvent")
-  private List<Registration> registrations;
+  private Set<Registration> registrations;
 
   public Long getId() {
     return id;
@@ -32,12 +33,11 @@ public class RunningEvent {
     this.eventName = eventName;
   }
 
-  public List<Registration> getRegistrations() {
+  public Set<Registration> getRegistrations() {
     return registrations;
   }
 
-  public void setRegistrations(List<Registration> registrations) {
+  public void setRegistrations(Set<Registration> registrations) {
     this.registrations = registrations;
   }
-
 }

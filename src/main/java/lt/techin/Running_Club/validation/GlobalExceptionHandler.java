@@ -1,4 +1,4 @@
-package com.example.runningclub.exception;
+package lt.techin.Running_Club.validation;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,5 +22,4 @@ public class GlobalExceptionHandler {
     );
     return ResponseEntity.badRequest().body(errors);
   }
-
 }
